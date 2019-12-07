@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}  <title>Login</title> {% endblock %}
+
+{% block add_ref %}  {% load staticfiles %}
+    <link rel="stylesheet" href="../../static/auth/css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link href="../../static/catalog/css/styles.css" rel="stylesheet" type="text/css" media="all">
+{% endblock %}
+{% block carousel %} {% endblock %}
+{% block content %}
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <input type="password" placeholder="confirm password"/>
+                <input type="text" placeholder="First name"/>
+                <input type="text" placeholder="Last name"/>
+                <input type="email" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button>login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('.message a').click(function () {
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    </script>
+{% endblock %}
+
+{% block footer %}
+    <footer class="fixed-bottom d-flex footer py-2 bg-success alert-info mt-5">
+        <!-- Copyright -->
+        <p class="ml-auto mr-auto"> © 2019 Copyright <a class="ml-3" href="#"> VIS Production</a></p>
+        <a class="mr-5" href="#">Back to top</a>
+    </footer>
+{% endblock %}
