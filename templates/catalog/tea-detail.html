@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block add_ref %}
+    <link href="../../static/catalog/css/styles.css" rel="stylesheet" type="text/css" media="all">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <nav class="container" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Store</a></li>
+                    <li class="breadcrumb-item"><a href="#">Category</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+                </ol>
+            </nav>
+            <h1 class="display-2 col-12 text-center mb-5">{{ product.name }}</h1>
+            <div class="col-md-5 col-sm-12">
+                <img src="{{ product.image_url }}" style="width: 100%;" alt="Responsive image">
+            </div>
+            <div class="col-md-7 col-sm-12">
+                <p class="lead">{{ product.description }}</p>
+                <hr>
+                <h4><strong>Категория: {{ product.category }}</strong></h4>
+            </div>
+            <h2 class="ml-5 mr-auto">Цена за 100 грамм: <strong>{{ product.price }}</strong></h2>
+            <form class="form-inline my-md-0">
+                <div class="input-group ">
+                    <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number bg-danger"
+                                                    disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                <span class="glyphicon glyphicon-minus ">–</span>
+                    </button>
+                    </span>
+                    <input type="text" name="quant[1]" class="form-control input-number text-center"
+                           style="width: 65px;" value="1" min="1" max="10">
+                    <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number bg-success"
+                                                    data-type="plus" data-field="quant[1]">
+                                                <span class="glyphicon glyphicon-plus">+</span>
+                    </button>
+                    </span>
+                </div>
+                <button class="btn-lg btn-warning ml-4 my-sm-0" type="submit">Купить</button>
+            </form>
+            <script src="../../static/catalog/counter_button.js"></script>
+        </div>
+    </div>
+{% endblock %}
+
+</body>

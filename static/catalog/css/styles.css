@@ -1,0 +1,46 @@
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link,
+.nav-pills > li > a.active {
+    color: #212529 !important;
+    background-color: #e0a800 !important;
+    border-color: #d39e00 !important;
+}
+
+footer {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+footer > a {
+    font-weight: 700 !important;
+    color: white !important;
+}
+
+footer > p > a {
+    color: #e0a800 !important;
+    font-weight: 1000 !important;
+}
+
+@media (max-width: 600px) {
+    footer {
+        color: white !important;
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 370px) {
+    footer {
+        color: white !important;
+        font-size: 10px !important;
+    }
+}
+
+.input-group {
+    width: 70px;
+    margin: 0 auto;
+}
+
+.input-group-btn {
+    margin-left: 5px;
+    margin-right: 5px;
+}

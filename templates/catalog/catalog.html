@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block  content %}
+    <div class="container col-12 col-sm-10 text-center " style="margin-top: 100px; ">
+        <hr class="col-8">
+        <div class="card-columns row justify-content-center" style="margin-top: 100px; ">
+            {% if product_list %}
+                {% for item in product_list %}
+
+                    <div class="hovereffect card border-success col-8 col-sm-7 col-md-4 col-lg-3  "
+                         style="width: 25rem!important;"><img class="card-img-top " src="{{ item.image_url }} "
+                                                              alt="Card image cap ">
+                        <div class="card-body mt-3" style="font-size: 18px; height: 240px!important;">
+                            <h5 class="card-title text-center nt-sm-5 nt-md-2 mt-3"><a href="#"
+                                                                                       class="card-link text-success "
+                                                                                       style="font-size: 22px; ">{{ item.name }}</a>
+                            </h5>
+                            <ul class="list-group list-group-flush ">
+                                <li class="list-group-item  nt-sm-5 nt-md-2">Category:
+                                    <strong>{{ item.category }}</strong></li>
+                                <li class="list-group-item mb-2">Price: <strong>{{ item.price }}</strong></li>
+                            </ul>
+                        </div>
+                        <a href="{{ item.get_absolute_url }}">
+                            <div class="overlay ">
+                                <button class=" btn btn-lg btn-success " style="margin-top: 200px; " type="submit ">
+                                    Buy
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
