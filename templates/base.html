@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    {% block title %}  <title>Tea Religion</title> {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+            maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    {% block add_ref %}
+        <link href="../static/homepage/css/styles.css" rel="stylesheet" type="text/css" media="all">
+    {% endblock %}
+</head>
+
+<body>
+{% block navigatoin %}
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-success">
+        <div class="container-xl">
+            <a class="navbar-brand mb-0 h1" href="{% url  'home' %}">Tea Religion</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navigation" style="">
+                <ul class=" nav navbar-nav nav-pills  mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="{% url  'home' %}">Home </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'catalog' %}">Store</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#">About us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Delivery</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav nav-pills">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url  'login' %}">Login</a>
+                    </li>
+
+                    <li class="nav-item active mr-5">
+                        <a class="nav-link" href="# ">Basket</a>
+                    </li>
+
+                </ul>
+                <form class="form-inline my-2 my-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Find tea for you" aria-label="Search">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block carousel %}
+    <div id="tea_carousel" class="carousel slide " data-ride="carousel">
+        <div class="carousel-inner ">
+            <div class="carousel-item  active">
+                <img src="../../static/homepage/img/tea.png" class="d-block w-100 " alt="...">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}<!-- default content text (typically empty) -->{% endblock %}
+
+{% block pagination %}
+    {% if is_paginated %}
+        <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <footer class="d-flex footer py-2 bg-success alert-info mt-5">
+        <!-- Copyright -->
+        <p class="ml-auto mr-auto"> © 2019 Copyright <a class="ml-3" href="#"> VIS Production</a></p>
+        <a class="mr-5" href="#">Back to top</a>
+    </footer>
+{% endblock %}
+</body>
