@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+
+{% block script %}
+    <script>
+        const item = document.getElementById('store');
+        item.classList.add('active')
+    </script>
+{% endblock %}
+
 {% block  content %}
     <div class="container col-12 col-sm-10 text-center " style="margin-top: 100px; ">
         <hr class="col-8">

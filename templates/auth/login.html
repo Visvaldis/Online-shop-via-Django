@@ -7,6 +7,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link href="../../static/catalog/css/styles.css" rel="stylesheet" type="text/css" media="all">
 {% endblock %}
+
+{% block script %}
+    <script>
+        const item = document.getElementById('login');
+        item.classList.add('active')
+    </script>
+{% endblock %}
+
 {% block carousel %} {% endblock %}
 {% block content %}
     <div class="login-page">

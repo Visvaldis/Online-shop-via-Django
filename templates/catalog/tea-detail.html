@@ -3,6 +3,13 @@
     <link href="../../static/catalog/css/styles.css" rel="stylesheet" type="text/css" media="all">
 {% endblock %}
 
+{% block script %}
+    <script>
+        const item = document.getElementById('store');
+        item.classList.add('active')
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <div class="row mt-5">

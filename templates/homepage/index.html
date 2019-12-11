@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+{% block script %}
+    <script>
+        const item = document.getElementById('home');
+        item.classList.add('active')
+    </script>
+{% endblock %}
+
 {% block carousel %}
     <div id="tea_carousel" class="carousel slide " data-ride="carousel">
         <div class="carousel-inner ">
@@ -60,6 +67,7 @@
                         </div>
                         <a href="{{ item.get_absolute_url }}">
                             <div class="overlay ">
+
                                 <button class=" btn btn-lg btn-success " style="margin-top: 200px; " type="submit ">
                                     Buy
                                 </button>
