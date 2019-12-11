@@ -22,17 +22,26 @@
 
     <div class="login-page">
         <div class="form">
-            <form method="POST" class="login-form">
+
+            <form method="POST" class="register-form">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Login</button>
-                <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+                {% for field in form %}
+                    <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+
+                {% endfor %}
+                <button type="submit">Sign up</button>
+                <p class="message">Already registered? <a href="{% url 'login' %}">Sign In</a></p>
             </form>
 
         </div>
     </div>
-
-
 {% endblock %}
 
 {% block footer %}
