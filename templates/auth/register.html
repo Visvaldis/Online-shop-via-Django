@@ -20,20 +20,21 @@
 
 
 
-    <div class="login-page">
-        <div class="form">
+    <div class="login-page register">
+        <div class="container-fluid was-validated form">
 
             <form method="POST" class="register-form">
                 {% csrf_token %}
                 {% for field in form %}
-                    <p>
-                        {{ field.label_tag }}<br>
-                        {{ field }}
 
-                        {% for error in field.errors %}
-                            <p style="color: red">{{ error }}</p>
-                        {% endfor %}
-                    </p>
+                    {{ field.label_tag }}
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback p-0" style="margin: 0px!important;">
+                            <span style="margin: 0px!important;">{{ error }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {{ field }}
 
                 {% endfor %}
                 <button type="submit">Sign up</button>
