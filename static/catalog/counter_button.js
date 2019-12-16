@@ -9,21 +9,26 @@ $('.btn-number').click(function (e) {
         if (type == 'minus') {
 
             if (currentVal > input.attr('min')) {
-                input.val(currentVal - 1).change();
+                input.val(currentVal - 50 + ' гр.').change();
             }
             if (parseInt(input.val()) == input.attr('min')) {
                 $(this).attr('disabled', true);
+            }
+            if (parseInt(input.val()) == input.attr('max')) {
+                $(this).removeAttr('disabled')
             }
 
         } else if (type == 'plus') {
 
             if (currentVal < input.attr('max')) {
-                input.val(currentVal + 1).change();
+                input.val(currentVal + 50 + " гр").change();
             }
             if (parseInt(input.val()) == input.attr('max')) {
                 $(this).attr('disabled', true);
             }
-
+            if (parseInt(input.val()) == input.attr('min')) {
+                $(this).removeAttr('disabled')
+            }
         }
     } else {
         input.val(0);

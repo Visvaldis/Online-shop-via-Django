@@ -31,16 +31,17 @@
                 <h4><strong>Категория: {{ product.category }}</strong></h4>
             </div>
             <h2 class="ml-5 mr-auto">Цена за 100 грамм: <strong>{{ product.price }}</strong></h2>
-            <form class="form-inline my-md-0">
+            <form class="form-inline my-md-0" id="form-buy" action="{% url 'add_to_basket' %}"> {% csrf_token %}
                 <div class="input-group ">
                     <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number bg-danger"
-                                                    disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    data-type="minus" data-field="quant[1]">
                                                 <span class="glyphicon glyphicon-minus ">–</span>
                     </button>
                     </span>
-                    <input type="text" name="quant[1]" class="form-control input-number text-center"
-                           style="width: 65px;" value="1" min="1" max="10">
+                    <input type="text" name="quant[1]" id="quantity" readonly
+                           class="form-control input-number text-center"
+                           style="width: 95px;" value="100 гр." min="50" max="1000">
                     <span class="input-group-btn">
                                             <button type="button" class="btn btn-default btn-number bg-success"
                                                     data-type="plus" data-field="quant[1]">
@@ -48,9 +49,14 @@
                     </button>
                     </span>
                 </div>
-                <button class="btn-lg btn-warning ml-4 my-sm-0" type="submit">Купить</button>
+                <button class="btn-lg btn-warning ml-4 my-sm-0" id="button-buy"
+                        data-product_id='{{ product.product_id }}'
+                        data-price='{{ product.price }}' type="submit">Купить
+                </button>
             </form>
             <script src="../../static/catalog/counter_button.js"></script>
+            <script src="../../static/catalog/buy.js"></script>
+            <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
         </div>
     </div>
 {% endblock %}

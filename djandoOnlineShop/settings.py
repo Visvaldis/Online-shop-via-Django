@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'homepage',
     'catalog',
     'authentication',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +83,9 @@ DATABASES = {
         'USER': 'ka7616',  # Not used with sqlite3.
         'PASSWORD': 'database',  # Not used with sqlite3.
         # outer ip
-        'HOST': '77.47.192.87',  # Set to empty string for localhost. Not used with sqlite3.
+        # 'HOST': '77.47.192.87',  # Set to empty string for localhost. Not used with sqlite3.
         # local ip at 35th building
-        #    'HOST': '10.35.2.26',                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': '10.35.2.26',  # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '33321',  # Set to empty string for default. Not used with sqlite3.
     }
 }
